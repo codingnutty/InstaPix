@@ -18,20 +18,25 @@ ActiveRecord::Schema.define(version: 20160322225636) do
 
   create_table "collections", force: :cascade do |t|
     t.string   "tag"
-    t.integer  "start_time"
-    t.integer  "end_time"
+    t.datetime "start_date"
+    t.datetime "end_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "insta_posts", force: :cascade do |t|
-    t.integer  "collection_id"
-    t.string   "media_url"
-    t.string   "link"
-    t.integer  "tag_time"
-    t.string   "media_type"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.string   "ig_username"
+    t.string   "tag_time"
+    t.string   "content_type"
+    t.string   "ig_link"
+    t.string   "image_url"
+    t.string   "video_url"
+    t.text     "description"
+    t.integer  "collections_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
   end
+
+  add_index "insta_posts", ["collections_id"], name: "index_insta_posts_on_collections_id", using: :btree
 
 end

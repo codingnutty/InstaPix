@@ -8,7 +8,7 @@ class CreateInstaPosts < ActiveRecord::Migration
       t.string :image_url
       t.string :video_url
       t.text :description
-      t.references :collections, index: true
+      t.references :collection, index: true
 
       t.timestamps null: false
     end

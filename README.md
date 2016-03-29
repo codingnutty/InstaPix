@@ -9,6 +9,7 @@ Clone the project and run the following commands in the project directory:
 * Run `bundle exec sidekiq`, to start up Sidekiq
 * Run `bundle exec rake db:create; bundle exec rake db:migrate` to set up the database locally.
 * Run `bundle exec rails s`, to start up the Rails server
+* go to localhost:3000/backbone_start
 
 ## Summary
 This app is set up to have rails in the backend with PostGres as database.

@@ -18,14 +18,14 @@ class InstaPost < ActiveRecord::Base
   end
 
   def self.caption_empty?(result)
-    result["caption"]["text"] ? false : true
+    result["caption"]["text"] ? true : false
   end
 
   def self.is_a_video?(result)
     result["type"] == "video"
   end
 
-  def self.filter_data(result, hashtag, search_start_date, search_end_date)
+  def self.filter_data(result, hashtag, collection_start_date, search_end_date)
     filtered_data = {ig_username: result["user"]["username"], content_type: result["type"], image_url: result["images"]["thumbnail"]["url"], "ig_link": result["link"]}
 
     if caption_empty?(result)
@@ -34,7 +34,7 @@ class InstaPost < ActiveRecord::Base
       created_time = result["caption"]["created_time"].concat("000")
       filtered_data[:description] = result["caption"]["text"]
       if contains_hashtag?(filtered_data[:description], hashtag)
-        if falls_within_date_range?(created_time, search_start_date, search_end_date)
+        if falls_within_date_range?(created_time, collection_start_date, collection_end_date)
           filtered_data[:tag_time] = created_time
         end
       else

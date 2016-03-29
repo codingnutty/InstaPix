@@ -34,6 +34,13 @@ gem 'httparty'
 gem 'json'
 gem 'rails-api'
 gem 'responders'
+gem 'active_model_serializers'
+gem 'react-rails', '~> 1.6.0'
+gem 'showdown-rails'
+gem 'turbolinks'
+gem 'redis'
+gem 'sidekiq'
+gem 'backbone-on-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
